@@ -1,0 +1,76 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package numerosprimos;
+
+/**
+ *
+ * @author work pc
+ */
+public class Numerosprimos {
+
+    /**
+     * @param args the command line arguments
+     */
+    private int n;
+    
+    public Numerosprimos (int n){
+    this.n = n;
+    }
+    public int[] calculatePrimes(int n){
+    int[] primes = new int[n];
+    int count = 0;
+    int number = 2;
+    while (count < n){
+    boolean isPrime = true;
+    for (int i = 2; i <=Math.sqrt(number); i++){
+    if (number % i ==0){
+    isPrime = false;
+    break;
+    }
+    }
+    if(isPrime){
+    primes[count] = number;
+    count++;
+    }
+    number ++;
+    }
+    return primes;
+    }
+    public int[] calculateFibonacci(int n){
+    int[] fibonacci = new int[n];
+    fibonacci[0] = 0;
+    fibonacci [1] = 1;
+    for (int i = 2; i < n; i++){
+    fibonacci[i] = fibonacci[i-1]+fibonacci[i-2];
+    }
+    return fibonacci;
+    }
+    public static void main(String[] args){
+    int n = 20;
+    Numerosprimos nc = new Numerosprimos(n);
+    
+    int[] primes = nc.calculatePrimes(n);
+    System.out.println("Numeros primos:");
+    for (int i = 0; i < primes.length; i++){
+    if (primes[i] !=0){
+    System.out.print(primes[i] + ",");
+    }
+    else{
+     break;
+    }
+    }
+    System.out.println("/n");
+    
+   System.out.println("\n");
+        
+        int[] fibonacci = nc.calculateFibonacci(n);
+        System.out.println("Sucesión de Fibonacci:");
+        for (int i = 0; i < fibonacci.length; i++) {
+            System.out.print(fibonacci[i] + ", ");
+        }
+    }
+
+}
+
